@@ -50,6 +50,7 @@ a {
   max-width: 100%;
   max-height: 100%;
   height: fit-content;
+  object-fit: cover;
 }
 
 .right-side, .left-side img {
