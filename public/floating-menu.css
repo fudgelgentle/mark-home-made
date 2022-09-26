@@ -6,7 +6,7 @@
   background: #F7CE46;
   padding: 10px 0px 10px 0px;
   border-radius: 0px 30px 30px 0px;
-  box-shadow: 1px 1px 1px rgb(178, 178, 178);
+  /* box-shadow: 1px 1px 1px rgb(178, 178, 178); */
   bottom: 120px;
   left: 0px;
   /* z-index makes the menu stay on top of other elements */

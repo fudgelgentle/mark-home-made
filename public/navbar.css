@@ -26,8 +26,9 @@ nav {
   color: #000;
 }
 
-#svg {
-  shape-rendering: crispEdges;
+#png {
+  width: 186px;
+  height: 66px;
 }
 
 /* * FOR MOBILE */
