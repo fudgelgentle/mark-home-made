@@ -235,9 +235,12 @@ main .btn {
   }
 
   .product-img {
-    max-width: 100%;
+    /* max-width: 100%;
     max-height: 100%;
-    height: fit-content;
+    height: fit-content; */
+    max-width: 100% !important;
+    height: auto;
+    display: block;
   }
 
   .main-container > h3, .main-container a {
