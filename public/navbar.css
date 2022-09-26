@@ -26,6 +26,10 @@ nav {
   color: #000;
 }
 
+#svg {
+  shape-rendering: crispEdges;
+}
+
 /* * FOR MOBILE */
 /* navbar-expand-lg collapses when width is less than 992 px */
 @media screen and (max-width: 992px) {
