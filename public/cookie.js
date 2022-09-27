@@ -17,13 +17,11 @@
    * @returns {boolean}
    */
   function isCookieEmpty() {
-    console.log('called');
+    console.log('calledd');
     // cart_info will be undefined if it's empty, which returns false;
     let cart_info = Cookies.get('cart_info');
-    if(cart_info) {
-      return false;
-    }
-    return true;
+    let cartJson = JSON.parse(cart_info);
+    return Object.keys(cartJson).length === 0;
   }
 
   /**
@@ -31,12 +29,9 @@
      * shopping cart will display a red dot.
      */
   function isCartEmpty() {
-    console.log(isCookieEmpty());
     if (isCookieEmpty()) {
-      console.log('empty');
       id('checkout').src = 'img/cart.png';
     } else {
-      console.log('not empty');
       id('checkout').src = 'img/active_cart.png';
     }
   }
