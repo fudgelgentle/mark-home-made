@@ -76,11 +76,11 @@
   }
 
   /**
-   * A helper function for "Adding to Cart" behavior that adds the item into
+   * A function for "Adding to Cart" behavior that adds the item into
    * the shopping_cart array after the user clicks "Add to Cart" button. The
    * quantity of the item is increased everytime the add to cart is clicked.
    */
-  function addToCartHelper() {
+  function addToCart() {
     // WIP: Quantity is set to 1 for now
     let product_id = this.id;
     let left_side = this.parentNode.previousElementSibling;
@@ -97,6 +97,7 @@
     }
     isCartEmpty();
     saveCookie();
+    location.reload();
   }
 
   /**
@@ -188,7 +189,7 @@
                   icon.alt = 'add-to-cart1';
                   icon.classList.add('cart-icon');
                   icon.setAttribute('id', product_id);
-                  icon.onclick = addToCartHelper;
+                  icon.onclick = addToCart;
               // & detail-container---------------------------------------------
 
             let button = gen('button');
