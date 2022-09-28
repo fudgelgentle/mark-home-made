@@ -17,9 +17,8 @@
 
   async function init() {
     try {
-      loadCartCookie();
-      await populateCheckout();
-      await populateSummary();
+      await loadCartCookie();
+      await populatePage();
       // initial check
       handleDeviceChange(isMobile);
       changeIconBehavior();
@@ -27,6 +26,20 @@
       checkOut();
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  async function populatePage() {
+    // If shopping cart is empty, reveal the empty-cart div and
+    // hides the checkout/summary div.
+    if (shopping_cart_array.length < 1) {
+      qs('.empty-cart').classList.remove('hidden');
+      qs('.split-container').classList.add('hidden');
+    } else {
+      qs('.empty-cart').classList.add('hidden');
+      qs('.split-container').classList.remove('hidden');
+      await populateCheckout();
+      await populateSummary();
     }
   }
 
@@ -397,9 +410,9 @@
   /**
    * Loads the cart_info cookie and fills in shopping_cart_array with the cookie.
    */
-  function loadCartCookie() {
+  async function loadCartCookie() {
     let cartInfo = Cookies.get('cart_info');
-    if(cartInfo) {
+    if (cartInfo) {
       cartInfo = JSON.parse(cartInfo);
       console.log(cartInfo);
       shopping_cart_array = cartInfo;
