@@ -128,10 +128,10 @@
    */
   async function populateShop() {
     try {
+      id('loading').classList.remove('hidden');
       let productList = await fetch('/list-product');
       await statusCheck(productList);
       productList = await productList.json();
-      console.log('productList: ' + JSON.stringify(productList));
       let parentContainer = gen('article');
 
       // & result holds the default_price of all legal products
@@ -196,6 +196,7 @@
             button.textContent = 'Add To Cart';
           // ? list-background--------------------------------------------------
 
+          id('loading').classList.add('hidden');
           // Grouping left-side and right-side
           // leftSide.appendChild(title);
           leftSide.appendChild(titleLink);
