@@ -166,6 +166,7 @@
 
               let imgLink = gen('a');
               imgLink.href= '/product?id=' + product_id;
+              id('loading').classList.add('hidden');
               imgLink.appendChild(img);
               // * img
 
@@ -196,7 +197,6 @@
             button.textContent = 'Add To Cart';
           // ? list-background--------------------------------------------------
 
-          id('loading').classList.add('hidden');
           // Grouping left-side and right-side
           // leftSide.appendChild(title);
           leftSide.appendChild(titleLink);
