@@ -231,6 +231,10 @@ main .btn {
   display: none !important;
 }
 
+.invisible {
+  visibility: hidden !important;
+}
+
 .flex {
   display: flex;
   justify-content: center;

@@ -432,6 +432,7 @@
       console.log('mobile enabled');
       enableMobile();
     }
+    qs('.left-side').classList.remove('invisible');
   }
 
   /**
