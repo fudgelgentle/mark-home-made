@@ -31,15 +31,18 @@
 
   async function populatePage() {
     // If shopping cart is empty, reveal the empty-cart div and
-    // hides the checkout/summary div.
+    // hides the checkout/summary div. Otherwise, populate page normally
     if (shopping_cart_array.length < 1) {
       qs('.empty-cart').classList.remove('hidden');
       qs('.split-container').classList.add('hidden');
     } else {
       qs('.empty-cart').classList.add('hidden');
       qs('.split-container').classList.remove('hidden');
+
+      id('loading').classList.remove('hidden');
       await populateCheckout();
       await populateSummary();
+      id('loading').classList.add('hidden');
     }
   }
 
@@ -432,7 +435,7 @@
       console.log('mobile enabled');
       enableMobile();
     }
-    qs('.left-side').classList.remove('invisible');
+    qs('.split-container').classList.remove('invisible');
   }
 
   /**

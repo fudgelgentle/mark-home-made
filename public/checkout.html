@@ -13,8 +13,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="checkout.css">
-    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/loading-gif.css">
     <title>Checkout</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=DM+Serif+Display&family=Kanit:wght@200;300&family=Rubik:wght@600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
@@ -56,9 +57,16 @@
       <button type="button" onclick="location.href='shop.html'">Shop Now</button>
     </article>
 
+    <!-- ~ Loading gif -->
+    <div id="loading">
+      <img src="img/loading-bowl.gif">
+      <p>Loading.....</p>
+    </div>
+    <!-- ~~~~~~~~~~~~~ -->
+
     <main>
-      <div class="split-container">
-        <div class="left-side invisible">
+      <div class="split-container invisible">
+        <div class="left-side">
           <div class="main-container">
             <h1>Your Shopping Cart</h1>
             <hr>

@@ -1,0 +1,18 @@
+/* ~Loading gif */
+#loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#loading img {
+  width: 200px;
+  height: 200px;
+  margin-top: 100px;
+}
+
+#loading p {
+  font-family: 'Raleway', sans-serif;
+}
+/* ~~~~~~~~~~~~ */
