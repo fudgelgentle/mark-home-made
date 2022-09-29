@@ -48,7 +48,7 @@
   }
 
   /**
-   * Changes between two add-to-cart icons
+   * Changes between two add-to-cart icons.
    */
   function changeIcon() {
     let iconName = this.src.split('/').pop();

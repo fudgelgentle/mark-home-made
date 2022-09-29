@@ -22,7 +22,10 @@ app.use(
     })
 );
 
-
+/**
+ * This endpoint is used with ejs to create product detail page for all
+ * the products listed in the Shop.
+ */
 // Sample id: prod_LvXOq7aYRQfCXZ
 app.get("/product", async (req, res) => {
   let id = req.query.id;
@@ -46,11 +49,6 @@ app.get("/product", async (req, res) => {
   }
 });
 
-app.get('/views', (req, res) => {
-  // index refers to index.ejs
-  res.render('index');
-});
-
 /**
  * Converts the unit_amount from cents to dollars
  * @param {Number} The unit_amount in cents
@@ -60,6 +58,9 @@ function centsToDollars(cents) {
   return (parseFloat(cents) / 100).toFixed(2);
 }
 
+/**
+ * ! Unused endpoint (for now)
+ */
 app.post('/create-product', async (req, res) => {
   try {
     console.log('name = ' + req.body.name);
@@ -135,6 +136,9 @@ app.get('/retrieve-price', async (req, res) => {
   }
 })
 
+/**
+ * ! Unused endpoint (for now)
+ */
 app.delete('/delete-product', async (req, res) => {
   try {
     await stripe.products.del(req.query.id);
@@ -144,6 +148,9 @@ app.delete('/delete-product', async (req, res) => {
   }
 })
 
+/**
+ * ! Unused endpoint (for now)
+ */
 app.delete('/delete-all-product', async (req, res) => {
   try {
     let productList = await stripe.products.list();
@@ -185,23 +192,6 @@ app.get('*', (req, res) => {
   res.render('error');
 });
 
-/** Takes in a map and converts it into an array containing JSON, and returns
-   * that array
-   * @param {Map} The map
-   * @return {Array} The JSON Array
-   */
- function mapToArray(cart) {
-  let line_items = [];
-  cart.forEach((value, key) => {
-    let obj = {
-      price: key,
-      quantity: value
-    }
-    line_items.push(obj);
-  });
-  return line_items;
-}
-
 /**
  *
  * @param {id} default_price
@@ -214,21 +204,7 @@ app.get('*', (req, res) => {
   return unit_amount;
 }
 
-/**
-   * Takes in an array and converts it into a map, and returns that map.
-   * @param {Array} The array
-   */
- function arrayToMap(arr) {
-  let newMap = new Map();
-  for (let i = 0; i < arr.length; i++) {
-    let price = arr[i].price;
-    let quantity = arr[i].quantity;
-    newMap.set(price, quantity);
-  }
-  return newMap;
-}
-
 app.use(express.static('public'));
 // TODO: Put in the website domain once it's published
-const YOUR_DOMAIN = 'http://localhost:3000';
+const YOUR_DOMAIN = 'https://mark-home-made-final.herokuapp.com';
 app.listen(port, () => console.log('Running on port ' + port));

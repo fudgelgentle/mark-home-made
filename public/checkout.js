@@ -29,9 +29,11 @@
     }
   }
 
+  /**
+   * Populates the whole checkout page. If shopping cart is empty, reveal the empty-cart div and
+     hide the checkout/summary div. Otherwise, populate page normally.
+   */
   async function populatePage() {
-    // If shopping cart is empty, reveal the empty-cart div and
-    // hides the checkout/summary div. Otherwise, populate page normally
     if (shopping_cart_array.length < 1) {
       qs('.empty-cart').classList.remove('hidden');
       qs('.split-container').classList.add('hidden');
@@ -46,6 +48,13 @@
     }
   }
 
+  /**
+   * Takes in Stripe product_id and outputs the default_price for the given
+   * product
+   * @param {*} product_id
+   * @returns The default_price, which is an ID used to get the price of a
+   * product
+   */
   async function getDefaultPrice(product_id) {
     let res = await fetch('/retrieve-product?id=' + product_id);
     await statusCheck(res);
@@ -53,6 +62,9 @@
     return res.default_price;
   }
 
+  /**
+   * Handles the checkout behavior.
+   */
   function checkOut() {
     let check_btn = id('checkout-btn');
     check_btn.addEventListener('click', checkOutHelper);
@@ -106,6 +118,10 @@
     Cookies.set('cart_info', JSON.stringify(shopping_cart_array), { expires: 7 });
   }
 
+  /**
+   * Handles cart editing behavior, allowing users to add, decrease, or remove
+   * products from their shopping cart.
+   */
   function editCartBehavior() {
     let plusButton = qsa('.plus');
     let minusButton = qsa('.minus');

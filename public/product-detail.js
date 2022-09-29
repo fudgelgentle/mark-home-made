@@ -24,16 +24,19 @@
     }
   }
 
+  /**
+   * Handles add to cart behavior.
+   */
   function addToCart() {
     let cartBtn = qs('.cart-btn');
     cartBtn.addEventListener('click', addToCartHelper);
   }
 
+  /**
+   * Helper function that allows users to add items from the product-detail
+   * page to the shopping cart.
+   */
   function addToCartHelper() {
-    let cartInfo = Cookies.get('cart_info');
-    console.log('--------------ADDED TO CART-----------------');
-    console.log('logging out shopping_cart_array and cartInfo');
-
     let product_id = this.id;
     let quantity = parseInt(id('qty').textContent);
     console.log('qtyF = ' + parseInt(id('qty').textContent));
@@ -53,6 +56,10 @@
     location.reload();
   }
 
+  /**
+   * Allows users to increase/decrease the amount of product they want to
+   * add to their shopping cart.
+   */
   function editCartBehavior() {
     let plusButton = qsa('.plus');
     let minusButton = qsa('.minus');
