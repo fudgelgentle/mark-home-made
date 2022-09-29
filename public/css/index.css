@@ -31,7 +31,7 @@ body {
 
 h2 {
   font-family: 'DM Serif Display', serif;
-  font-size: 32px;
+  font-size: 32px !important;
 }
 
 h1, h3, ul {
@@ -44,7 +44,7 @@ h1, h3, ul {
 }
 
 .text-side h3, .text-side li {
-  font-size: 18px;
+  font-size: 18px !important;
   line-height: 28px;
 }
 
