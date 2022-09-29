@@ -11,7 +11,7 @@ body {
   background-image: url("img/background2.png");
 }
 
-a {
+main a {
   text-decoration: none !important;
   color: inherit !important;
 }
