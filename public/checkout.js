@@ -25,6 +25,7 @@
       editCartBehavior();
       checkOut();
     } catch (error) {
+      console.log("error at init")
       console.log(error);
     }
   }
@@ -103,9 +104,9 @@
       await statusCheck(res);
       // & res will return a Stripe checkout URL
       res = await res.text();
-      console.log('text = ' + res);
       location.assign(res);
     } catch (error) {
+      console.log("error at checkouthelper")
       console.log(error);
     }
   }
@@ -276,7 +277,7 @@
    * @returns {Number} Corresponding object's price * quantity in 2 decimal places.
    */
   function priceTimesQuantity(e) {
-    return (parseInt(e.price.charAt(1)) * parseInt(e.quantity)).toFixed(2);
+    return (parseFloat(e.price.substring(1, e.price.length)) * parseInt(e.quantity)).toFixed(2);
   }
 
   /**
@@ -284,6 +285,7 @@
    * populate items from the shopping cart
    */
   async function populateCheckout() {
+    console.log('got in')
     try {
       if (shopping_cart_array.length > 0) {
         let image;
@@ -304,6 +306,7 @@
           image = res.images;
           title = shopping_cart_array[i].title;
           price = shopping_cart_array[i].price;
+          console.log("price: " + shopping_cart_array[i].price)
           quantity = shopping_cart_array[i].quantity;
 
           let items_container = gen('div');
@@ -332,7 +335,8 @@
 
             let h3price = gen('h3');
             h3price.classList.add('flex');
-            h3price.textContent = '$' + (parseFloat(price.charAt(1))).toFixed(2);
+            // h3price.textContent = '$' + (parseFloat(price.charAt(1))).toFixed(2);
+            h3price.textContent = '$' + parseFloat(price.substring(1, price.length)).toFixed(2);
 
             let mobile_container = gen('div');
             mobile_container.classList.add('mobile-container');
@@ -393,6 +397,7 @@
         }
       }
     } catch (error) {
+      console.log("error at populatecheckout")
       console.log(error);
     }
   }
@@ -403,9 +408,7 @@
    */
   function changeIconBehavior() {
     let imgList = document.querySelectorAll('main .items-container .btn-container img');
-    console.log(imgList);
     for (let i = 0; i < imgList.length; i++) {
-      console.log(imgList[i]);
       imgList[i].addEventListener('mouseover', changeIcon);
       imgList[i].addEventListener('mouseout', changeIcon);
     }
@@ -433,7 +436,6 @@
     let cartInfo = Cookies.get('cart_info');
     if (cartInfo) {
       cartInfo = JSON.parse(cartInfo);
-      console.log(cartInfo);
       shopping_cart_array = cartInfo;
     }
   }
@@ -477,7 +479,6 @@
   function disableMobile() {
     // Removes hidden from the old h3
     let selector = qsa('.items-container > h3.hidden, .items-container > a.hidden');
-    console.log(selector);
     for (let i = 0; i < selector.length; i++) {
       selector[i].classList.remove('hidden');
     }

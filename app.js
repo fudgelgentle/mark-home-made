@@ -94,7 +94,6 @@ app.get('/retrieve-product', async (req, res) => {
     let id = req.query.id;
     console.log('id = ' + id);
     let product = await stripe.products.retrieve(id);
-    console.log(product);
     res.json(product);
     console.log('success');
   } catch (error) {

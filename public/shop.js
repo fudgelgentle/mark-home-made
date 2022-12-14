@@ -248,7 +248,6 @@
    * shopping cart will display a red dot.
    */
   function isCartEmpty() {
-    console.log('shopping_cart_array = ' + JSON.stringify(shopping_cart_array));
     if (shopping_cart_array.length === 0) {
       id('checkout').src = 'img/cart.png';
     } else {
