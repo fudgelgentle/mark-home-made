@@ -206,5 +206,5 @@ app.get('*', (req, res) => {
 
 app.use(express.static('public'));
 // TODO: Put in the website domain once it's published
-const YOUR_DOMAIN = 'https://mark-home-made-final.herokuapp.com';
+const YOUR_DOMAIN = 'https://mark-home-made.onrender.com/';
 app.listen(port, () => console.log('Running on port ' + port));
