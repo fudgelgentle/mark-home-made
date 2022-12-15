@@ -277,7 +277,7 @@
    * @returns {Number} Corresponding object's price * quantity in 2 decimal places.
    */
   function priceTimesQuantity(e) {
-    return (parseFloat(e.price.substring(1, e.price.length)) * parseInt(e.quantity)).toFixed(2);
+    return (parseFloat(e.price.replace("$", "")) * parseInt(e.quantity)).toFixed(2);
   }
 
   /**
@@ -335,8 +335,8 @@
 
             let h3price = gen('h3');
             h3price.classList.add('flex');
-            // h3price.textContent = '$' + (parseFloat(price.charAt(1))).toFixed(2);
-            h3price.textContent = '$' + parseFloat(price.substring(1, price.length)).toFixed(2);
+            // h3price.textContent = '$' + parseFloat(price.substring(1, price.length)).toFixed(2);
+            h3price.textContent = '$' + parseFloat(price.replace("$", "")).toFixed(2)
 
             let mobile_container = gen('div');
             mobile_container.classList.add('mobile-container');
