@@ -1,5 +1,7 @@
-// This is your test secret API key.
-const stripe = require('stripe')('sk_test_51LA4B2FOUXXxHptWjsgT8StM84l3uH212xSsvWlQmdxWDSqvG2Eal4wTvZemTNmvloO4bZM2ckmG1wfUVeHc6USY00FZueAW6T');
+require('dotenv').config();
+
+// Gets the API key from process.env
+const stripe = require('stripe')(process.env.STRIPE_API_TOKEN);
 const express = require('express');
 const app = express();
 // ! Need to require CORS when you're fetching API from 3rd party services
