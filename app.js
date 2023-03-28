@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // ! session, i.e. req.body
 app.use(express.json());
 
-// TODO: Put in the website domain once it's published
+
 app.use(
     cors({
       origin: ["${YOUR_DOMAIN}", "https://checkout.stripe.com"],
