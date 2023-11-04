@@ -22,7 +22,6 @@
   </head>
   <body>
     <%- include('navbar.ejs') %>
-    <!-- & Floating Menu -->
     <main>
       <section class="grid-container">
         <div class="title">
@@ -59,9 +58,12 @@
         </div>
       </section>
 
+      <!-- & Floating Menu -->
       <div id="floating-menu">
         <!-- retrieved from "https://www.flaticon.com/free-icons/buy -->
-        <img src="img/cart.png" id="checkout" alt="cart">
+        <a href="checkout.html">
+          <img src="img/cart.png" id="checkout" class="floating-cart" alt="Shopping cart, status: empty">
+        </a>
       </div>
     </main>
     <footer>

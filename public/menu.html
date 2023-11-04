@@ -34,19 +34,19 @@
     <!-- & Appending navbar -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color:#F7CE46;">
       <a class="navbar-brand ml-2" href="index.html">
-        <img src="img/logo.png" alt="logo" id="png">
+        <img src="img/logo.png" alt="Mark Thai Food Box Logo" id="png">
       </a>
-      <!-- *This is the hamburger menu part -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!-- * -->
-
       <div class="collapse navbar-collapse" id="navbarText">
         <div class="navbar-nav ms-auto">
           <a class="nav-item nav-link mx-2" href="menu.html">MENU</a>
           <a class="nav-item nav-link mx-2" href="shop.html">SHOP</a>
           <a class="nav-item nav-link mx-2" href="index.html#no-reverse">CONTACT</a>
+          <a class="nav-item nav-link mx-2" href="checkout.html">
+            <img src="img/cart.png" id="checkout" alt="Shopping cart, status: empty">
+          </a>
         </div>
       </div>
     </nav>
@@ -154,7 +154,9 @@
       <!-- & Floating Menu -->
       <div id="floating-menu">
         <!-- retrieved from "https://www.flaticon.com/free-icons/buy -->
-        <img src="img/cart.png" id="checkout" alt="cart">
+        <a href="checkout.html">
+          <img src="img/cart.png" id="checkout" class="floating-cart" alt="Shopping cart, status: empty">
+        </a>
       </div>
     </main>
     <footer>

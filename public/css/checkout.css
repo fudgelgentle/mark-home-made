@@ -34,7 +34,7 @@ body {
 main a {
   text-decoration: none !important;
   color: #707070 !important;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 main h1, main h2, .main-container h2, button {
@@ -108,6 +108,7 @@ main h2, main h3, main p, main a {
   align-items: center;
   justify-items: center;
   padding-left: 10px;
+  column-gap: 10px;
 
   margin-top: 20px;
   font-family: 'DM Serif Display', serif;

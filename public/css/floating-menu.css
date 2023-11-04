@@ -15,9 +15,11 @@
 }
 
 #checkout {
+}
+
+.floating-cart {
   margin-left: 10px;
   margin-right: 20px;
-  cursor: pointer;
 }
 
 #floating-menu img .items {

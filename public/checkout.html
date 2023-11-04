@@ -15,6 +15,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/checkout.css">
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/floating-menu.css">
     <link rel="stylesheet" href="css/loading-gif.css">
     <link rel="icon" href="img/tab.png">
     <title>Checkout</title>
@@ -28,6 +29,7 @@
     <!-- * Added cookies -->
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
     <script src="checkout.js"></script>
+    <script src="cookie.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/4e2b5a66ca.js" crossorigin="anonymous"></script>
   </head>
@@ -35,19 +37,19 @@
     <!-- & Appending navbar -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color:#F7CE46;">
       <a class="navbar-brand ml-2" href="index.html">
-        <img src="img/logo.png" alt="logo" id="png">
+        <img src="img/logo.png" alt="Mark Thai Food Box Logo" id="png">
       </a>
-      <!-- *This is the hamburger menu part -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!-- * -->
-
       <div class="collapse navbar-collapse" id="navbarText">
         <div class="navbar-nav ms-auto">
           <a class="nav-item nav-link mx-2" href="menu.html">MENU</a>
           <a class="nav-item nav-link mx-2" href="shop.html">SHOP</a>
           <a class="nav-item nav-link mx-2" href="index.html#no-reverse">CONTACT</a>
+          <a class="nav-item nav-link mx-2" href="checkout.html">
+            <img src="img/cart.png" id="checkout" alt="Shopping cart, status: empty">
+          </a>
         </div>
       </div>
     </nav>

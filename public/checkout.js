@@ -360,7 +360,7 @@
 
               let minus = gen('img');
               minus.src = 'img/minus1.png';
-              minus.alt = 'minus';
+              minus.alt = 'Decrease quantity';
               minus.classList.add('minus');
               minus.setAttribute('id', product_id);
               btn_container.appendChild(minus);
@@ -371,7 +371,7 @@
 
               let plus = gen('img');
               plus.src = 'img/plus1.png';
-              plus.alt = 'plus';
+              plus.alt = 'Increase quantity';
               plus.classList.add('plus');
               plus.setAttribute('id', product_id);
               btn_container.appendChild(plus);

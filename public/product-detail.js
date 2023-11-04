@@ -17,7 +17,7 @@
    */
    function loadCartCookie() {
     let cartInfo = Cookies.get('cart_info');
-    if(cartInfo) {
+    if (cartInfo) {
       cartInfo = JSON.parse(cartInfo);
       console.log(cartInfo);
       shopping_cart_array = cartInfo;
