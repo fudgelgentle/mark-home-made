@@ -1,9 +1,5 @@
 
 /*
- *Pu Thavikulwat
- * 04/19/2022
- * AD, Itani,Abdul Rahman
- *
  * This is the JS file that handles all of the UI in shop.html.
  * It contains features like switching images on the item list when the
  * mouse is hovered over and adding items to the shopping cart
@@ -17,6 +13,9 @@
   // *An array that stores the checkout items in the format:
   //*   [default_price, quantity, title, price]
   let shopping_cart_array = [];
+
+  // Stores an object that contains 'product)_name', 'product_id' and 'img_src'
+  let imageList = [];
 
   /**
    * The starting function init() executes all the methods inside the
@@ -34,6 +33,16 @@
     }
   }
 
+  function enableButtons() {
+    console.log('enableButtons')
+    let addToCartButtons = qsa('.add-to-cart-btn');
+    console.log(addToCartButtons)
+    addToCartButtons.forEach(button => {
+      button.addEventListener("click", addToCart)
+    })
+  }
+
+
   /**
    * This function changes the add-to-cart icon to a different color when
    * the mouse is hovered on / out.
@@ -41,7 +50,6 @@
   function changeIconBehavior() {
     let imgList = qsa('article .detail-container img');
     for (let i = 0; i < imgList.length; i++) {
-      console.log(imgList[i]);
       imgList[i].addEventListener('mouseover', changeIcon);
       imgList[i].addEventListener('mouseout', changeIcon);
     }
@@ -81,8 +89,16 @@
    * quantity of the item is increased everytime the add to cart is clicked.
    */
   function addToCart() {
-    // WIP: Quantity is set to 1 for now
+    console.log('add to cart called');
+    showAlert();
+
     let product_id = this.id;
+    const product = (imageList.find(item => item.product_id === product_id));
+    const image_src = product.img_src;
+    id('banner-img').src = image_src;
+    const product_name = product.product_name;
+    announceSR(product_name);
+
     let left_side = this.parentNode.previousElementSibling;
     let title = left_side.childNodes[0].textContent;
     let price = left_side.childNodes[1].textContent;
@@ -97,7 +113,24 @@
     }
     isCartEmpty();
     saveCookie();
-    location.reload();
+  }
+
+  function announceSR(productName) {
+    id('liveAlert').textContent = productName + ' is added to cart';
+  }
+
+  /**
+   * Shows "item added to cart" alert
+   */
+  function showAlert() {
+    id('cart-banner').classList.remove('cart-banner-hidden');
+    id('cart-banner').classList.add('cart-banner-visible');
+    id('cart-banner').classList.add('banner-transition');
+    setTimeout(() => {
+      id('cart-banner').classList.add('cart-banner-hidden');
+      id('cart-banner').classList.remove('cart-banner-visible');
+      id('cart-banner').classList.remove('banner-transition');
+    }, 4500)
   }
 
   /**
@@ -151,6 +184,13 @@
           images = productList.data[i].images;
           name = productList.data[i].name;
 
+          let imagePair = {
+            product_name: name,
+            product_id: product_id,
+            img_src: images
+          }
+          imageList.push(imagePair)
+
           // Generates the item info
           let divContainer = gen('div');
             let listBackground = gen('div');
@@ -185,12 +225,14 @@
                   price.setAttribute('id', 'price');
                 let rightSide = gen('div');
                 rightSide.classList.add('right-side');
-                  let icon = gen('img');
-                  icon.src = 'img/add-to-cart1.svg';
-                  icon.alt = 'add-to-cart1';
-                  icon.classList.add('cart-icon');
-                  icon.setAttribute('id', product_id);
-                  icon.onclick = addToCart;
+                  let btn = gen('button');
+                  btn.classList.add('add-to-cart-btn');
+                  btn.setAttribute('id', product_id);
+                    let icon = gen('img');
+                    icon.src = 'img/add-to-cart1.svg';
+                    icon.alt = 'Add to cart';
+                    icon.classList.add('cart-icon');
+                  btn.appendChild(icon);
               // & detail-container---------------------------------------------
 
             let button = gen('button');
@@ -202,7 +244,7 @@
           leftSide.appendChild(titleLink);
           leftSide.appendChild(price);
 
-          rightSide.appendChild(icon);
+          rightSide.appendChild(btn);
 
           // Grouping detail-container
           detailContainer.appendChild(leftSide);
@@ -222,6 +264,7 @@
         }
       }
       id('item-list').appendChild(parentContainer);
+      enableButtons();
     } catch (error) {
       console.log(error);
     }
@@ -248,11 +291,16 @@
    * shopping cart will display a red dot.
    */
   function isCartEmpty() {
+    let shoppingCarts = qsa('#checkout');
+    let imgResource = ''
     if (shopping_cart_array.length === 0) {
-      id('checkout').src = 'img/cart.png';
+      imgResource = 'img/cart.png';
     } else {
-      id('checkout').src = 'img/active_cart.png';
+      imgResource = 'img/active_cart.png';
     }
+    shoppingCarts.forEach(cart => {
+      cart.src = imgResource;
+    });
   }
 
   /**

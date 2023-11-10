@@ -22,7 +22,6 @@
   </head>
   <body>
     <%- include('navbar.ejs') %>
-    <!-- & Floating Menu -->
     <main>
       <section class="grid-container">
         <div class="title">
@@ -37,9 +36,9 @@
           <br>
           <div class="btn-container">
             <div class="qty-btn">
-              <img class="minus" src="img/vector-minus.png">
+              <img class="minus" alt="Decrease quantity" src="img/vector-minus.png">
               <p id="qty">1</p>
-              <img class="plus" src="img/vector-plus.png">
+              <img class="plus" alt="Increase quantity" src="img/vector-plus.png">
             </div>
             <div class="cart-btn" id=<%=product_id%>>
               <p>Add to Cart</p>
@@ -59,10 +58,20 @@
         </div>
       </section>
 
+      <!-- & Floating Menu -->
       <div id="floating-menu">
         <!-- retrieved from "https://www.flaticon.com/free-icons/buy -->
-        <img src="img/cart.png" id="checkout" alt="cart">
+        <a href="checkout.html">
+          <img src="img/cart.png" id="checkout" class="floating-cart" alt="Shopping cart, status: empty">
+        </a>
       </div>
+      <!--& Announcement/Alert -->
+      <div role="alert" id="cart-banner" class="cart-banner-hidden">
+        <img id="banner-img" src="" alt="The image of the item added to cart">
+        <p id="cart-message">Item added to cart!</p>
+      </div>
+      <!--& ARIA live region (visually hidden but accessible to screen readers) -->
+      <div id="liveAlert" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
     </main>
     <footer>
       <br>

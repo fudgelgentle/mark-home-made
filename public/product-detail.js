@@ -17,7 +17,7 @@
    */
    function loadCartCookie() {
     let cartInfo = Cookies.get('cart_info');
-    if(cartInfo) {
+    if (cartInfo) {
       cartInfo = JSON.parse(cartInfo);
       console.log(cartInfo);
       shopping_cart_array = cartInfo;
@@ -39,9 +39,13 @@
   function addToCartHelper() {
     let product_id = this.id;
     let quantity = parseInt(id('qty').textContent);
-    console.log('qtyF = ' + parseInt(id('qty').textContent));
     let title = id('prodName').textContent;
     let price = id('price').textContent;
+
+    showAlert();
+    id('banner-img').src = qs('.left-side img').src;
+    const product_name = title;
+    announceSR(product_name);
 
     let found_index = shopping_cart_array.findIndex((i) => i.id === product_id);
     if (found_index > -1) {
@@ -53,7 +57,25 @@
     }
     console.log(shopping_cart_array);
     saveCookie();
-    location.reload();
+  }
+
+
+  function announceSR(productName) {
+    id('liveAlert').textContent = productName + ' is added to cart';
+  }
+
+  /**
+   * Shows "item added to cart" alert
+   */
+  function showAlert() {
+    id('cart-banner').classList.remove('cart-banner-hidden');
+    id('cart-banner').classList.add('cart-banner-visible');
+    id('cart-banner').classList.add('banner-transition');
+    setTimeout(() => {
+      id('cart-banner').classList.add('cart-banner-hidden');
+      id('cart-banner').classList.remove('cart-banner-visible');
+      id('cart-banner').classList.remove('banner-transition');
+    }, 4500)
   }
 
   /**

@@ -4,6 +4,7 @@
 
 .navbar-nav {
   margin-right: 80px;
+  align-items: center;
 }
 
 button.navbar-toggler{

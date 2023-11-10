@@ -34,7 +34,7 @@ body {
 main a {
   text-decoration: none !important;
   color: #707070 !important;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 main h1, main h2, .main-container h2, button {
@@ -108,6 +108,7 @@ main h2, main h3, main p, main a {
   align-items: center;
   justify-items: center;
   padding-left: 10px;
+  column-gap: 10px;
 
   margin-top: 20px;
   font-family: 'DM Serif Display', serif;
@@ -124,6 +125,20 @@ main h2, main h3, main p, main a {
   /* align-items: center; */
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.btn-container button, .items-container .trash, .items-container a {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.btn-no-style {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
 }
 
 .product-img {
@@ -143,10 +158,6 @@ main h2, main h3, main p, main a {
 
 .btn-container img {
   margin-top: 2px;
-}
-
-.items-container .trash {
-  margin-bottom: 5px;
 }
 
 .plus {
@@ -241,6 +252,16 @@ main .btn {
   align-items: center;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 
 /* &                  Mobile                      */
 
