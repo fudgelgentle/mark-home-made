@@ -1,9 +1,5 @@
 
 /*
- *Pu Thavikulwat
- * 04/19/2022
- * AD, Itani,Abdul Rahman
- *
  * This is the JS file that handles all of the UI in shop.html.
  * It contains features like switching images on the item list when the
  * mouse is hovered over and adding items to the shopping cart

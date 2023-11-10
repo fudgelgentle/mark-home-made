@@ -20,6 +20,12 @@ main a {
   font-family: 'Raleway', sans-serif;
 }
 
+#cart-message {
+  font-family: 'DM Serif Display', serif;
+  margin-top: 3px;
+  text-decoration: none;
+}
+
 .title {
   font-size: 18px;
 }
@@ -148,6 +154,86 @@ main a {
 #rolling {
   width: 35px;
   height: 35px;
+}
+
+/* **** Alert banner ****/
+
+#banner-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+#cart-banner {
+  background-color: #F7E3A1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  padding: 15px 15px 15px 10px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 2px grey);
+}
+
+.cart-banner-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s 0.5s, opacity 0.5s linear; /* Transition for fade-out effect */
+}
+
+.cart-banner-visible {
+  visibility: visible;
+  position: fixed;
+  top: 150px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.banner-transition {
+  animation: move-in 0.3s ease-out forwards,
+    fadeOut 0.5s ease-out forwards 4s;
+}
+
+@keyframes move-in {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0
+  }
+}
+
+#cart-message {
+  margin: 0 auto;
+}
+
+.add-to-cart-btn {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 

@@ -126,7 +126,7 @@
   function editCartBehavior() {
     let plusButton = qsa('.plus');
     let minusButton = qsa('.minus');
-    let removeButton = qsa('.trash');
+    let removeButton = qsa('.trash-btn');
 
     for (let i = 0; i < plusButton.length; i++) {
       plusButton[i].addEventListener('click', plusCart);
@@ -173,7 +173,7 @@
    * Decreases quantity to the selected item when the minus icon is clicked.
    * Removes item from the cart
    */
-  function minusCart() {
+  async function minusCart() {
     let product_id = this.id;
     let found_index = shopping_cart_array.findIndex((i) => i.id === product_id);
     if (found_index > -1) {
@@ -358,31 +358,50 @@
             let btn_container = gen('div');
             btn_container.classList.add('btn-container');
 
-              let minus = gen('img');
-              minus.src = 'img/minus1.png';
-              minus.alt = 'Decrease quantity';
-              minus.classList.add('minus');
-              minus.setAttribute('id', product_id);
-              btn_container.appendChild(minus);
+
+              let minusBtn = gen('button');
+              minusBtn.classList.add('btn-no-style');
+              minusBtn.classList.add('minus');
+              minusBtn.setAttribute('id', product_id);
+
+                let minusImg = gen('img');
+                minusImg.src = 'img/minus1.png';
+                minusImg.alt = 'Decrease quantity';
+                minusBtn.appendChild(minusImg)
+                btn_container.appendChild(minusBtn);
 
               let h3quantity = gen('h3');
               h3quantity.textContent = quantity;
+              h3quantity.ariaLabel = "quantity: " + quantity;
               btn_container.appendChild(h3quantity);
 
-              let plus = gen('img');
-              plus.src = 'img/plus1.png';
-              plus.alt = 'Increase quantity';
-              plus.classList.add('plus');
-              plus.setAttribute('id', product_id);
-              btn_container.appendChild(plus);
+              let plusBtn = gen('button');
+              plusBtn.classList.add('btn-no-style');
+              plusBtn.classList.add('plus');
+              plusBtn.setAttribute('id', product_id);
 
-              let trashDiv = gen('div');
+                let plusImg = gen('img');
+                plusImg.src = 'img/plus1.png';
+                plusImg.alt = 'Increase quantity';
+
+              plusBtn.appendChild(plusImg)
+              btn_container.appendChild(plusBtn);
+
+              let trashBtn = gen('button');
+              trashBtn.classList.add('btn-no-style');
+              trashBtn.setAttribute('id', product_id);
+              trashBtn.classList.add('trash-btn');
+
+              // let trashDiv = gen('div');
               let trash_icon = gen('img');
               trash_icon.src = 'img/trash2.png';
+              trash_icon.alt = 'Remove ' + title + ' from checkout.'
               trash_icon.classList.add('trash');
               trash_icon.setAttribute('id', product_id);
-              trashDiv.classList.add('flex');
-              trashDiv.appendChild(trash_icon);
+              // trashDiv.classList.add('flex');
+              // trashDiv.appendChild(trash_icon);
+
+              trashBtn.appendChild(trash_icon);
 
               items_container.appendChild(imgLink);
               // items_container.appendChild(h3title);
@@ -390,7 +409,7 @@
               items_container.appendChild(h3price);
               items_container.appendChild(mobile_container);
               items_container.appendChild(btn_container);
-              items_container.appendChild(trashDiv);
+              items_container.appendChild(trashBtn);
 
 
           qs('main .main-container').appendChild(items_container);
