@@ -165,6 +165,7 @@
       let productList = await fetch('/list-product');
       await statusCheck(productList);
       productList = await productList.json();
+      console.log('productList Length: ', productList.data.length);
       let parentContainer = gen('article');
 
       // & result holds the default_price of all legal products
@@ -217,6 +218,7 @@
                 leftSide.classList.add('left-side');
 
                   let titleLink = gen('a');
+                  titleLink.classList.add('prod-title');
                   titleLink.href = '/product?id=' + product_id;
                   titleLink.textContent = name;
 

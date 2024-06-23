@@ -38,6 +38,7 @@ main article {
   padding: 0;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
+  max-width: 300px;
 }
 
 .detail-container {
@@ -179,6 +180,10 @@ h1, #loading p {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.prod-title {
+  white-space: initial;
 }
 
 /* ? BLACK MAGIC PART */

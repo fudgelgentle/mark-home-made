@@ -111,7 +111,9 @@ app.get('/list-product', async (req, res) => {
   try {
     let productList = await stripe.products.list({
       active: true,
+      limit: 100,
     });
+    console.log("productList length in app.js = ", productList.data.length);
     res.json(productList);
   } catch (error) {
     console.log(error);
