@@ -117,17 +117,13 @@ span {
   }
 
   .container {
-    flex-direction: column-reverse;
+    flex-direction: column;
     margin-top: 30px;
     row-gap: 30px;
     padding: 20px !important;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-  }
-
-  #no-reverse {
-    flex-direction: column;
   }
 }
 /* &&&&&&&&&&&&&&& */
