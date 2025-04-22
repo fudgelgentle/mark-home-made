@@ -38,6 +38,10 @@ h1, h3, ul {
   font-family: 'Raleway', sans-serif;
 }
 
+.text-side img {
+  min-height: 300px;
+}
+
 .text-side ul {
   width: 100%;
   margin-top: 30px;
@@ -50,6 +54,7 @@ h1, h3, ul {
 
 #store, iframe {
   width: 500px;
+  height: 536px;
   border-radius: 20px;
 }
 
@@ -111,6 +116,7 @@ span {
 @media screen and (max-width: 992px) {
   #store {
     width: 100%;
+    height: auto;
   }
 
   iframe {
