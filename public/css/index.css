@@ -15,7 +15,7 @@ body {
   background-size: auto;
   /* Makes background fixed regardless of screen size */
   background-attachment: fixed;
-  background-image: url("../img/background2.png");
+  background-image: url("../img/background2.webp");
 }
 
 .container, .info-container {
@@ -49,8 +49,14 @@ h1, h3, ul {
 }
 
 #store, iframe {
-  width: 35rem;
+  width: 500px;
   border-radius: 20px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .btn-container {
