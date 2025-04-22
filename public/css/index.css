@@ -48,15 +48,9 @@ h1, h3, ul {
 }
 
 #store, iframe {
-  width: 500px;
-  height: 536px;
+  /* width: 500px;
+  height: 536px; */
   border-radius: 20px;
-}
-
-img {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 .btn-container {
