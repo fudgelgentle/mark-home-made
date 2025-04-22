@@ -18,6 +18,7 @@
   function isCookieEmpty() {
     // cart_info will be undefined if it's empty, which returns false;
     let cart_info = Cookies.get('cart_info');
+    if (!cart_info) return true;
     let cartJson = JSON.parse(cart_info);
     return Object.keys(cartJson).length === 0;
   }
