@@ -16,7 +16,8 @@ body {
   background-image: url("../img/background2.webp");
 }
 
-.container, .info-container {
+.container,
+.info-container {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
@@ -28,26 +29,47 @@ body {
 }
 
 h2 {
-  font-family: 'DM Serif Display', serif;
+  font-family: "DM Serif Display", serif;
   font-size: 32px;
 }
 
-h1, h3, ul {
-  font-family: 'Raleway', sans-serif;
+h1,
+h3,
+ul {
+  font-family: "Raleway", sans-serif;
 }
 
+.text-side {
+  min-height: 400px; /* Prevent content collapse */
+  width: 45%; /* Fixed width to prevent shifts */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.text-side h2 {
+  margin-bottom: 1.5rem;
+  min-height: 96px; /* Account for 3 lines of text */
+}
 
 .text-side ul {
-  /* width: 100%; */
   margin-top: 30px;
+  margin-bottom: 2rem;
+  min-height: 200px; /* Account for list items */
 }
 
-.text-side h3, .text-side li {
+.text-side li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.text-side h3,
+.text-side li {
   font-size: 18px !important;
   line-height: 28px;
 }
 
-#store, iframe {
+#store,
+iframe {
   /* width: 500px;
   height: 536px; */
   border-radius: 20px;
@@ -56,15 +78,18 @@ h1, h3, ul {
 .btn-container {
   display: flex;
   flex-wrap: nowrap;
-  text-decoration: none;
+  gap: 20px;
+  min-height: 50px; /* Fixed height for button container */
+  margin-top: 2rem;
 }
 
 .text-side button {
-  font-family: 'Raleway', sans-serif;
-    /* padding: top, right, bottom, left */
-  padding: 10px 40px 10px 40px;
+  font-family: "Raleway", sans-serif;
+  padding: 10px 40px;
   border-radius: 30px;
-  margin-top: 30px;
+  min-width: 150px; /* Fixed width for buttons */
+  height: 45px; /* Fixed height for buttons */
+  text-align: center;
 }
 
 #left-btn {
@@ -85,7 +110,7 @@ h1, h3, ul {
 }
 
 #right-btn:hover {
-  background-color: #F7CE46;
+  background-color: #f7ce46;
   border: none;
   border: 1px solid black;
   transition: 0.5s;
@@ -97,7 +122,7 @@ h1, h3, ul {
 
 /* * span tag is used for styling part of a text */
 span {
-  font-family: 'DM Serif Display', serif;
+  font-family: "DM Serif Display", serif;
   font-size: 24px;
 }
 
@@ -106,6 +131,15 @@ span {
   #store {
     width: 100%;
     height: auto;
+  }
+
+  .text-side button {
+    padding: 15px;
+    height: 60px;
+  }
+
+  #right-btn {
+    margin-left: 0px;
   }
 
   iframe {
@@ -124,6 +158,23 @@ span {
 
   #no-reverse {
     flex-direction: column;
+  }
+
+  .text-side {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .text-side h2 {
+    min-height: auto;
+  }
+
+  .text-side ul {
+    min-height: auto;
+  }
+
+  .btn-container {
+    min-height: auto;
   }
 }
 /* &&&&&&&&&&&&&&& */
